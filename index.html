@@ -14,6 +14,7 @@
       * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
       }
 
       body {
@@ -24,49 +25,53 @@
 
       nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         background-color: rgb(18, 18, 33);
+        padding: 0 20px;
         height: 80px;
-      }
-
-      nav ul {
-        display: flex;
-        justify-content: center;
-      }
-
-      nav ul li {
-        list-style: none;
-        margin: 0 23px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-      }
-
-      nav ul li a:hover {
-        color: rgb(183, 162, 162);
-        font-size: 1.04rem;
       }
 
       .left {
         font-size: 1.5rem;
       }
 
+      .right ul {
+        display: flex;
+        list-style: none;
+      }
+
+      .right ul li {
+        margin: 0 10px;
+      }
+
+      .right ul li a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s, font-size 0.3s;
+      }
+
+      .right ul li a:hover {
+        color: rgb(183, 162, 162);
+        font-size: 1.04rem;
+      }
+
       .firstSection {
         display: flex;
-        justify-content: space-around;
-        margin: 100px 0;
+        flex-direction: column;
         align-items: center;
+        margin: 100px 0;
       }
 
       .firstSection > div {
-        width: 30%;
+        width: 90%;
+        max-width: 1200px;
+        text-align: center;
       }
 
       .leftSection {
         font-size: 2.5rem;
+        margin-bottom: 20px;
       }
 
       .leftSection .buttons {
@@ -74,22 +79,20 @@
       }
 
       .leftSection .btn {
-        padding: 12px;
+        padding: 12px 20px;
         background: #1e2167;
         color: white;
         border: 2px solid white;
         border-radius: 6px;
         font-size: 20px;
         cursor: pointer;
-      }
-
-      .rightSection {
-        width: 80%;
+        margin: 5px;
       }
 
       .rightSection img {
-        width: 90%;
-        height: 90%; 
+        width: 100%;
+        max-width: 500px;
+        height: auto;
       }
 
       .purple {
@@ -99,7 +102,7 @@
       .roleTitle {
         color: rgb(190, 133, 27);
       }
-      /* id = #, and class = . */
+
       #element {
         color: orange;
       }
@@ -107,86 +110,116 @@
       main hr {
         border: 0;
         height: 1.2px;
-        margin: 40px 84px;
+        margin: 40px auto;
         background: #9c97f1;
+        max-width: 90%;
       }
 
       .secondSection {
         max-width: 80vw;
         margin: auto;
-        height: 50vh;
+        height: auto;
+        padding: 20px;
       }
 
       .secondSection h1 {
         font-size: 1.7rem;
+        text-align: center;
+        margin-bottom: 20px;
       }
 
       .text-gray {
         color: gray;
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
       }
 
       .secondSection .box {
-        background: white;
-        width: 82vw;
-        height: 2px;
-        margin: 56px 0;
         display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background: white;
+        padding: 10px 0;
       }
 
       .secondSection .vertical {
-        height: 93px;
-        width: 1px;
-        background-color: white;
-        margin: 0 120px;
+        flex: 1;
+        min-width: 150px;
+        margin: 0 20px;
+        text-align: center;
       }
 
       .image-top {
         width: 23px;
-        position: relative;
-        top: -32px;
-        left: -10px;
+        margin-bottom: 10px;
+      }
+
+      .vertical-title, .vertical-desc {
+        color: gray;
       }
 
       .vertical-title {
-        position: relative;
-        top: 75px;
-        width: 150px;
-      }
-
-      .vertical-desc {
-        position: relative;
-        top: 80px;
-        color: gray;
-        width: 150px;
-        font-size: 9px;
+        font-weight: bold;
+        margin-bottom: 5px;
       }
 
       footer {
         background-color: rgb(18, 18, 33);
-        height: 200px;
+        padding: 20px;
       }
 
       .footer {
         display: flex;
-        padding: 23px 122px;
-        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .footer ul {
-        list-style: none;
-      }
-
-      .footer > div {
-        width: 223px;
-      }
-
-      footer .rights {
+      .footer .rights {
         text-align: center;
         color: gray;
       }
 
       .company {
         color: rgb(190, 133, 27);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          height: auto;
+          padding: 10px;
+        }
+
+        .right ul {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+
+        .right ul li {
+          margin: 10px 0;
+        }
+
+        .firstSection {
+          margin: 50px 0;
+        }
+
+        .leftSection {
+          font-size: 2rem;
+        }
+
+        .secondSection {
+          max-width: 90vw;
+          padding: 10px;
+        }
+
+        .secondSection .box {
+          flex-direction: column;
+        }
+
+        .secondSection .vertical {
+          margin: 10px 0;
+        }
       }
     </style>
   </head>
@@ -209,16 +242,16 @@
       <section class="firstSection">
         <div class="leftSection">
           Hi! My name is <span class="purple"> Rytham.</span>
-          <div>and I am a aspiring</div>
+          <div>and I am an aspiring</div>
           <span id="element"></span>
 
           <div class="buttons">
-            <a href="resume.pdf" download
-              ><button class="btn">Download Resume</button></a
-            >
-            <a href="https://github.com/Rytham1"
-              ><button class="btn">Visit Github</button></a
-            >
+            <a href="resume.pdf" download>
+              <button class="btn">Download Resume</button>
+            </a>
+            <a href="https://github.com/Rytham1">
+              <button class="btn">Visit Github</button>
+            </a>
           </div>
         </div>
 
@@ -246,7 +279,7 @@
             <img class="image-top" src="developer.png" alt="" />
             <div class="vertical-title">
               <div class="company">BTB Studio</div>
-              <div>SWE intern (Jun 2023 - Sep 2023)</div>
+              <div>SWE Intern (Jun 2023 - Sep 2023)</div>
             </div>
           </div>
 
@@ -262,7 +295,7 @@
             <img class="image-top" src="developer.png" alt="" />
             <div class="vertical-title">
               <div class="company">IBM</div>
-              <div>Acclerate Software Track (Jun 2024 - Aug 2024)</div>
+              <div>Accelerate Software Track (Jun 2024 - Aug 2024)</div>
             </div>
           </div>
 
